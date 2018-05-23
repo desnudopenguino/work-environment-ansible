@@ -1,0 +1,13 @@
+---
+ - name: Install Packages
+   openbsd_pkg:
+     name: "{{ item }}"
+   with_items:
+       - vim--gtk2
+       - conky--
+       - firefox--
+       - qutebrowser--
+       - xpdf--
+       - i3lock--
+       - texinfo--
+       - texlive_texmf-minimal

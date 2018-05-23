@@ -1,0 +1,5 @@
+---
+ - name: Conifugre Laptop
+   hosts: local
+   roles:
+     - install-pkgs
