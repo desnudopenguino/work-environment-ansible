@@ -11,3 +11,6 @@
        - i3lock--
        - texinfo--
        - texlive_texmf-minimal
+       - libreoffice
+       - htop
+       - rxvt-unicode
