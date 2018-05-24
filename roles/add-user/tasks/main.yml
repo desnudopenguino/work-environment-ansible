@@ -11,7 +11,6 @@
      shell: /bin/ksh
      groups: wheel
      login_class: staff
-     uid: 1000
      password: "{{ encrypted_pass.stdout }}"
    tags:
      - add-user
