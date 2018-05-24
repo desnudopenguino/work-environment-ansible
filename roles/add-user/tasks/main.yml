@@ -1,0 +1,17 @@
+---
+ - name: Encrypt Password
+   shell: encrypt "{{ user_pass }}"
+   register: encrypted_pass
+   tags:
+     - add-user
+
+ - name: Add User
+   user:
+     name: "{{ user_name }}"
+     shell: /bin/ksh
+     groups: wheel
+     login_class: staff
+     uid: 1000
+     password: "{{ encrypted_pass.stdout }}"
+   tags:
+     - add-user
