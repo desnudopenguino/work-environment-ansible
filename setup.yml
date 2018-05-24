@@ -1,5 +1,6 @@
 ---
- - name: Conifugre Laptop
+ - name: Conifugre System
    hosts: local
    roles:
      - install-pkgs
+     - add-user
