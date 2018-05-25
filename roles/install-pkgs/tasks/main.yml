@@ -4,13 +4,18 @@
      name: "{{ item }}"
    with_items:
        - vim--gtk2
+       - bash
        - conky--
-       - firefox--
-       - qutebrowser--
-       - xpdf--
-       - i3lock--
-       - texinfo--
+       - firefox
+       - qutebrowser
+       - xpdf
+       - i3lock
+       - texinfo
        - texlive_texmf-minimal
        - libreoffice
        - htop
        - rxvt-unicode
+       - feh
+       - compton
+   tags:
+     - install-pkgs
