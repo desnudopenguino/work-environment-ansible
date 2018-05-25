@@ -1,0 +1,61 @@
+---
+ - block:
+   - name: Download dotfiles
+     git:
+       repo: 'https://github.com/desnudopenguino/dotfiles.git'
+       dest: "/home/{{ user_name }}/dotfiles"
+     tags:
+       - user-config
+       - dotfiles
+
+   - name: Install dotfiles
+     shell: make
+     args:
+       chdir: "/home/{{ user_name }}/dotfiles"
+     tags:
+       - user-config
+       - dotfiles
+   
+   - name: Download scripts
+     git:
+       repo: 'https://github.com/desnudopenguino/scripts.git'
+       dest: "/home/{{ user_name }}/scripts"
+     tags:
+       - user-config
+       - scripts
+
+   - name: Download WorkLogger
+     git:
+       repo: 'https://github.com/desnudopenguino/wl.git'
+       dest: "/home/{{ user_name }}/wl"
+     tags:
+       - user-config
+       - wl
+
+   - name: Initialize WorkLogger
+     shell: make init
+     args:
+       chdir: "/home/{{ user_name }}/wl"
+     tags:
+       - user-config
+       - wl
+
+   become: yes
+   become_method: su
+   become_user: "{{ user_name }}"
+
+ - name: Install WorkLogger
+   shell: make global
+   args:
+     chdir: "/home/{{ user_name }}/wl"
+   tags:
+     - user-config
+     - wl
+
+ - name: Install WorkLogger Man
+   shell: make man
+   args:
+     chdir: "/home/{{ user_name }}/wl"
+   tags:
+     - user-config
+     - wl
