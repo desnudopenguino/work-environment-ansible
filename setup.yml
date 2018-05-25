@@ -4,3 +4,4 @@
    roles:
      - install-pkgs
      - add-user
+     - user-config
