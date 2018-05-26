@@ -1,0 +1,9 @@
+---
+ - name: Remove console from Xenodm
+   lineinfile:
+     path: /etc/X11/xenodm/Xsetup_0
+     regexp: '^.*xconsole.*$'
+     line: '	xsetroot -solid #282A36'
+   tags:
+     - system-config 
+     - remove-console
