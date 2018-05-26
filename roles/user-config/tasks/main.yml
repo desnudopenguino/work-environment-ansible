@@ -40,6 +40,26 @@
        - user-config
        - wl
 
+   - name: Add .kshrc to .profile
+     lineinfile:
+       path: "/home/{{ user_name }}/.profile"
+       line: ". ~/.kshrc"
+       state: present
+     tags:
+       - user-config
+       - source-kshrc
+
+   - name: Create todo.txt
+     file:
+       path: "/home/{{ user_name }}/todo.txt"
+       owner: "{{ user_name }}"
+       groeup: "{{ user_name }}"
+       mode: 0644
+       state: present
+     tags:
+       - user-config
+       - create-todo
+
    become: yes
    become_method: su
    become_user: "{{ user_name }}"
