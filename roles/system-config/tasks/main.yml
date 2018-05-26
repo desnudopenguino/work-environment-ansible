@@ -3,7 +3,7 @@
    lineinfile:
      path: /etc/X11/xenodm/Xsetup_0
      regexp: '^.*xconsole.*$'
-     line: '	xsetroot -solid #282A36'
+     state: absent
    tags:
      - system-config 
      - remove-console
