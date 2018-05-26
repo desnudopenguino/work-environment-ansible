@@ -7,3 +7,13 @@
    tags:
      - system-config 
      - remove-console
+
+ - name: Setup doas
+   lineinfile:
+     path: /etc/doas.conf
+     line: permit nopass keepenv :wheel
+     create: yes
+     state: present
+   tags:
+     - system-config
+     - setup-doas
