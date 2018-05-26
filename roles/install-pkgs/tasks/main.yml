@@ -17,5 +17,8 @@
        - rxvt-unicode
        - feh
        - compton
+       - rofi
+       - scrot
+       - ImageMagick
    tags:
      - install-pkgs
