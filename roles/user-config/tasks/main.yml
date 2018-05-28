@@ -4,6 +4,7 @@
      git:
        repo: 'https://github.com/desnudopenguino/dotfiles.git'
        dest: "/home/{{ user_name }}/dotfiles"
+       force: yes
      tags:
        - user-config
        - dotfiles
@@ -53,9 +54,9 @@
      file:
        path: "/home/{{ user_name }}/todo.txt"
        owner: "{{ user_name }}"
-       groeup: "{{ user_name }}"
+       group: "{{ user_name }}"
        mode: 0644
-       state: present
+       state: touch
      tags:
        - user-config
        - create-todo
