@@ -1,0 +1,111 @@
+! $OpenBSD: Xresources.in,v 1.1 2017/07/26 21:14:54 matthieu Exp $
+
+xlogin*login.translations: #override \
+	Ctrl<Key>R: abort-display()\n\
+	<Key>F1: set-session-argument(failsafe) finish-field()\n\
+	<Key>Left: move-backward-character()\n\
+	<Key>Right: move-forward-character()\n\
+	<Key>Home: move-to-begining()\n\
+	<Key>End: move-to-end()\n\
+	Ctrl<Key>KP_Enter: set-session-argument(failsafe) finish-field()\n\
+	<Key>KP_Enter: set-session-argument() finish-field()\n\
+	Ctrl<Key>Return: set-session-argument(failsafe) finish-field()\n\
+	<Key>Return: set-session-argument() finish-field()
+
+xlogin*geometry: 400x250 +0 +0
+xlogin*greeting: Welcome to CLIENTHOST
+
+xlogin*namePrompt: Name:
+xlogin*passwdPrompt: Pass:
+xlogin*fail: LOGIN FAILED
+
+#if WIDTH > 800
+xlogin*greetFont: -adobe-helvetica-bold-o-normal--24-240-75-75-p-138-iso8859-1
+xlogin*font: -adobe-helvetica-medium-r-normal--18-180-75-75-p-98-iso8859-1
+xlogin*promptFont: -adobe-helvetica-bold-r-normal--18-180-75-75-p-103-iso8859-1
+xlogin*failFont: -adobe-helvetica-bold-r-normal--18-180-75-75-p-103-iso8859-1
+xlogin*greetFace:       DejaVu Sans Condensed-22:bold:italic:dpi=75
+xlogin*face:            DejaVu Sans Condensed-16:dpi=75
+xlogin*promptFace:      DejaVu Sans Condensed-16:bold:dpi=75
+xlogin*failFace:        DejaVu Sans Condensed-16:bold:dpi=75
+#else
+xlogin*greetFont: -adobe-helvetica-bold-o-normal--17-120-100-100-p-92-iso8859-1
+xlogin*font: -adobe-helvetica-medium-r-normal--12-120-75-75-p-67-iso8859-1
+xlogin*promptFont: -adobe-helvetica-bold-r-normal--12-120-75-75-p-70-iso8859-1
+xlogin*failFont: -adobe-helvetica-bold-o-normal--14-140-75-75-p-82-iso8859-1
+xlogin*greetFace:       DejaVu Sans Condensed-18:bold:italic:dpi=75
+xlogin*face:            DejaVu Sans Condensed-12:dpi=75
+xlogin*promptFace:      DejaVu Sans Condensed-12:bold:dpi=75
+xlogin*failFace:        DejaVu Sans Condensed-12:bold:dpi=75
+#endif
+
+#if !(defined(bpp1) || defined(bpp4) || defined(bpp8) || defined(bpp15))
+# if PLANES < 4
+#  ifndef bpp1
+#   define bpp1
+#  endif
+# else
+#  if PLANES > 4
+#   if PLANES > 8
+#    ifndef bpp15
+#     define bpp15
+#    endif
+#   else
+#    ifndef bpp8
+#     define bpp8
+#    endif bpp8
+#   endif
+#  else
+#   ifndef bpp4
+#    define bpp4
+#   endif
+#  endif
+# endif
+#endif  /* If manual override */
+
+#ifndef bpp1
+xlogin*borderWidth: 5
+xlogin*frameWidth: 5
+xlogin*innerFramesWidth: 0
+
+xlogin.Login.sepWidth: 0
+
+! 'Welcome to..' text color
+xlogin*greetColor: #CAA9FA
+#if defined(bpp4) || defined(bpp8) || defined(bpp15)
+! flood fill
+xlogin*background: #282A36
+xlogin*inpColor: #282A36
+#endif
+xlogin*failColor: #FF6E67
+
+xlogin*shdColor: #8BE9FD
+xlogin*hiColor: #8BE9FD
+
+! 'Login:' and 'Password:'
+*Foreground: #F8F8F2
+
+! border/shadow
+*Background: #282A36
+#else
+xlogin*borderWidth: 5
+xlogin*frameWidth: 5
+xlogin*innerFramesWidth: 1
+xlogin*shdColor: #8BE9FD
+xlogin*hiColor: #8BE9FD
+xlogin*greetColor: #CAA9FA
+xlogin*background: #282A36
+xlogin*failColor: #FF6E67
+xlogin*promptColor: #8BE0FD
+*Foreground: #F8F8F2
+*Background: #282A36
+#endif
+
+xlogin*useShape: true
+xlogin*logoPadding: 10
+
+xlogin*top: 0
+xlogin*left: 0
+
+! uncomment to disable logins
+! xlogin.Login.allowRootLogin:	false

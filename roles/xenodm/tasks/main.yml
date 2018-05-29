@@ -3,9 +3,9 @@
    lineinfile:
      path: /etc/X11/xenodm/Xsetup_0
      regexp: '^.*xconsole.*$'
-     state: absent
+     line: '    xsetroot -solid "#282A36"'
    tags:
-     - system-config 
+     - xenodm
      - remove-console
 
  - name: Setup doas
@@ -15,5 +15,16 @@
      create: yes
      state: present
    tags:
-     - system-config
+     - xenodm
      - setup-doas
+
+ - name: Config Xenodm login screen
+   copy:
+     src: ../templates/Xresources
+     dest: /etc/X11/xenodm/Xresources
+     owner: root
+     group: bin
+     mode: 0444
+   tags:
+     - xenodm
+     - xenodm-login

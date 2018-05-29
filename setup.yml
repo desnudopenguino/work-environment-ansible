@@ -3,6 +3,6 @@
    hosts: local
    roles:
      - install-pkgs
-     - system-config
+     - xenodm
      - add-user
      - user-config
