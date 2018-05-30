@@ -64,7 +64,6 @@ xlogin*failFace:        DejaVu Sans Condensed-12:bold:dpi=75
 #endif  /* If manual override */
 
 #ifndef bpp1
-xlogin*borderWidth: 5
 xlogin*frameWidth: 5
 xlogin*innerFramesWidth: 0
 
@@ -88,7 +87,6 @@ xlogin*hiColor: #8BE9FD
 ! border/shadow
 *Background: #282A36
 #else
-xlogin*borderWidth: 5
 xlogin*frameWidth: 5
 xlogin*innerFramesWidth: 1
 xlogin*shdColor: #8BE9FD
