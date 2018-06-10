@@ -73,7 +73,7 @@
      - user-config
      - wl
 
- - name: Install WorkLogger Man
+ - name: Install WorkLogger Manual
    shell: make man
    args:
      chdir: "/home/{{ user_name }}/wl"
