@@ -1,0 +1,15 @@
+---
+ - name: Copy dhclient.conf
+   become: yes
+   become_method: doas
+   become_user: root
+   copy:
+     src: ../templates/dhclient.conf
+     dest: /etc/dhclient.conf
+     owner: root
+     group: wheel
+     mode: 0644
+   notify: restart dns
+   tags:
+     - dns
+     - config-dns

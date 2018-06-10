@@ -1,0 +1,6 @@
+---
+ - name: restart dns
+   become: yes
+   become_method: doas
+   become_user: root
+   shell: sh /etc/netstart
