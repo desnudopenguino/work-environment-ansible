@@ -3,8 +3,8 @@
    become: yes
    become_method: doas
    become_user: root
-   copy:
-     src: ../templates/dhclient.conf
+   template:
+     src: templates/dhclient.conf.j2
      dest: /etc/dhclient.conf
      owner: root
      group: wheel
