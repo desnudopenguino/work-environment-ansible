@@ -80,3 +80,10 @@
    tags:
      - user-config
      - wl
+
+ - name: Install tmuxp
+   pip:
+     name: tmuxp
+   tags:
+     - user-config
+     - tmuxp
